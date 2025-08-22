@@ -2,6 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Text, ScrollView, Pressable, TextInput, Animated, StyleSheet, Image } from 'react-native';
 import { MaterialIcons, MaterialCommunityIcons, Feather, FontAwesome, Ionicons, Entypo } from '@expo/vector-icons';
 import { getAllTask } from '@/services/taskService';
+import { router } from 'expo-router';
 
 const TaskScreen = () => {
 const handleFetchData = async () => {
@@ -336,15 +337,16 @@ const handleFetchData = async () => {
       </ScrollView>
       
       {/* Add Task Button */}
-      <Pressable 
-        className="absolute bottom-6 right-6 bg-gradient-to-r from-purple-600 to-indigo-700 w-16 h-16 rounded-full items-center justify-center shadow-xl"
+      <Pressable
+       className="absolute bottom-8 right-8 bg-purple-600 w-16 h-16 rounded-full items-center justify-center shadow-xl"
         style={{
           shadowColor: '#7e3af2',
           shadowOffset: { width: 0, height: 8 },
           shadowOpacity: 0.3,
-          shadowRadius: 20,
+          shadowRadius: 15,
           elevation: 10
         }}
+        onPress={() => router.push("/(dashboard)/tasks/new")}
       >
         <Feather name="plus" size={32} color="white" />
       </Pressable>
